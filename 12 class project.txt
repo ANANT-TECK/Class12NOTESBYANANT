@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 NCERT Notes - Created by Anant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            color: #5a67d8;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .subject-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .subject-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .subject-card h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subject-card p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .chapter-page {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn {
+            background: #5a67d8;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #4c51bf;
+        }
+
+        .chapter-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .chapter-item {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #5a67d8;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .chapter-item:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+
+        .chapter-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-sections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .section-tag {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 0.25rem 0.5rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .pdf-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .pdf-available {
+            color: #38a169;
+        }
+
+        .pdf-coming-soon {
+            color: #e53e3e;
+        }
+
+        .subject-title {
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .subject-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+            
+            .subject-card {
+                padding: 1.5rem;
+            }
+            
+            .subject-icon {
+                font-size: 2.5rem;
+            }
+            
+            .chapter-page {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Created by Anant-insta-anant_ksingh</h1>
+    </div>
+
+    <div class="container">
+        <!-- Homepage -->
+        <div id="homepage">
+            <div class="subject-grid">
+                <div class="subject-card" onclick="showSubject('physics')">
+                    <div class="subject-icon">⚛️</div>
+                    <h3>Physics</h3>
+                    <p>14 Chapters Available</p>
+                </div>
+                
+                <div class="subject-card" onclick="showSubject('chemistry')">
+                    <div class="subject-icon">🧪</div>
+                    <h3>Chemistry</h3>
+                    <p>15 Chapters Available</p>
+                </div>
+                
+                <div class="subject-card" onclick="showSubject('mathematics')">
+                    <div class="subject-icon">📐</div>
+                    <h3>Mathematics</h3>
+                    <p>13 Chapters Available</p>
+                </div>
+                
+                <div class="subject-card" onclick="showSubject('english')">
+                    <div class="subject-icon">📚</div>
+                    <h3>English</h3>
+                    <p>18 Chapters Available</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Physics Page -->
+        <div id="physics-page" class="chapter-page">
+            <button class="back-btn" onclick="showHomepage()">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <h2 class="subject-title">Physics - Class 12</h2>
+            <div class="chapter-list" id="physics-chapters"></div>
+        </div>
+
+        <!-- Chemistry Page -->
+        <div id="chemistry-page" class="chapter-page">
+            <button class="back-btn" onclick="showHomepage()">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <h2 class="subject-title">Chemistry - Class 12</h2>
+            <div class="chapter-list" id="chemistry-chapters"></div>
+        </div>
+
+        <!-- Mathematics Page -->
+        <div id="mathematics-page" class="chapter-page">
+            <button class="back-btn" onclick="showHomepage()">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <h2 class="subject-title">Mathematics - Class 12</h2>
+            <div class="chapter-list" id="mathematics-chapters"></div>
+        </div>
+
+        <!-- English Page -->
+        <div id="english-page" class="chapter-page">
+            <button class="back-btn" onclick="showHomepage()">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <h2 class="subject-title">English - Class 12</h2>
+            <div class="chapter-list" id="english-chapters"></div>
+        </div>
+    </div>
+
+    <script>
+        // Chapter data with sections and PDF links
+        const chaptersData = {
+            physics: [
+                {
+                    number: 1,
+                    title: "Electric Charges and Fields",
+                    sections: ["Electric Charge", "Coulomb's Law", "Electric Field", "Electric Field Lines", "Electric Dipole", "Gauss's Law"],
+                    pdfLink: "https://drive.google.com/file/d/11Sy0pyosVKC0yLD51Cnr7XhXTj1njhN6/view?usp=drive_link"
+                },
+                {
+                    number: 2,
+                    title: "Electrostatic Potential and Capacitance",
+                    sections: ["Electric Potential", "Potential Energy", "Capacitance", "Parallel Plate Capacitor", "Energy Stored in Capacitor"],
+                    pdfLink: "https://drive.google.com/file/d/1w1Ms_U7rm4RB9v4-Ty5Gn4IoCZqNMMDz/view?usp=drive_link"
+                },
+                {
+                    number: 3,
+                    title: "Current Electricity",
+                    sections: ["Electric Current", "Ohm's Law", "Resistivity", "Kirchhoff's Laws", "Wheatstone Bridge"],
+                    pdfLink: "https://drive.google.com/file/d/11pUdo2USvut1EO7jlTZJ7VpWnCxxd5-Y/view?usp=drive_link"
+                },
+                {
+                    number: 4,
+                    title: "Moving Charges and Magnetism",
+                    sections: ["Magnetic Force", "Motion in Magnetic Field", "Magnetic Field due to Current", "Ampere's Law", "Solenoid"],
+                    pdfLink: "https://drive.google.com/file/d/18ek4ol8fUBhkVvQ-V_8QuGaxPmT3s2J6/view?usp=drive_link"
+                },
+                {
+                    number: 5,
+                    title: "Magnetism and Matter",
+                    sections: ["Bar Magnet", "Magnetism on Earth", "Magnetic Materials", "Hysteresis", "Electromagnets"],
+                    pdfLink: "https://drive.google.com/file/d/1OKxt_7A_yIvN3_8SUo06jA7p4GAmz0Kc/view?usp=drive_link"
+                },
+                {
+                    number: 6,
+                    title: "Electromagnetic Induction",
+                    sections: ["Faraday's Law", "Lenz's Law", "Eddy Currents", "Self Inductance", "AC Generator"],
+                    pdfLink: "https://drive.google.com/file/d/1bXNNugHAUyPV2g26mln5Y-dym5msftpx/view?usp=drive_link"
+                },
+                {
+                    number: 7,
+                    title: "Alternating Current",
+                    sections: ["AC Voltage", "LCR Circuits", "Power in AC", "Transformers", "AC Generator"],
+                    pdfLink: "https://drive.google.com/file/d/16rMfipeaTm_yBlNLBu8iX4S3Q6dXOBuh/view?usp=drive_link"
+                },
+                {
+                    number: 8,
+                    title: "Electromagnetic Waves",
+                    sections: ["Displacement Current", "EM Waves", "EM Spectrum", "Wave Propagation"],
+                    pdfLink: "https://drive.google.com/file/d/1WoqlI3LhetKXkMU1MnfBFh_DPsyiPsSR/view?usp=drive_link"
+                },
+                {
+                    number: 9,
+                    title: "Ray Optics and Optical Instruments",
+                    sections: ["Reflection", "Refraction", "Total Internal Reflection", "Lenses", "Optical Instruments"],
+                    pdfLink: "https://drive.google.com/file/d/1Vl0OfsGjgfmxIAcqvWdtrIuYupP7ZFCr/view?usp=drive_link"
+                },
+                {
+                    number: 10,
+                    title: "Wave Optics",
+                    sections: ["Huygens Principle", "Interference", "Diffraction", "Polarisation", "Scattering"],
+                    pdfLink: "https://drive.google.com/file/d/1KRU5ukVHbGtCb5PeyO1MeQi0rlbGNmKj/view?usp=drive_link"
+                },
+                {
+                    number: 11,
+                    title: "Dual Nature of Radiation and Matter",
+                    sections: ["Photoelectric Effect", "Photons", "Matter Waves", "de Broglie Wavelength"],
+                    pdfLink: "https://drive.google.com/file/d/1gN86hChQVHsx6DXI_citKNAF9dvw26Sd/view?usp=drive_link"
+                },
+                {
+                    number: 12,
+                    title: "Atoms",
+                    sections: ["Alpha Scattering", "Bohr Model", "Hydrogen Spectrum", "Energy Levels"],
+                    pdfLink: "https://drive.google.com/file/d/1YkWHHigGD2ReRFn2oblcRukcmEQsGD8V/view?usp=drive_link"
+                },
+                {
+                    number: 13,
+                    title: "Nuclei",
+                    sections: ["Nuclear Properties", "Radioactivity", "Nuclear Reactions", "Nuclear Energy"],
+                    pdfLink: "https://drive.google.com/file/d/1s47mcjDGdIjIMkOVCpbcvxFxWpQlLAyT/view?usp=drive_link"
+                },
+                {
+                    number: 14,
+                    title: "Semiconductor Electronics: Materials, Devices and Simple Circuits",
+                    sections: ["Semiconductors", "p-n Junction", "Transistors", "Logic Gates", "Rectifiers"],
+                    pdfLink: "https://drive.google.com/file/d/1rXxElv_HYmhTae6smBBDdy5v9Mzehmp6/view?usp=drive_link"
+                }
+            ],
+            chemistry: [
+                {
+                    number: 1,
+                    title: "Solid State",
+                    sections: ["Crystal Lattices", "Unit Cells", "Packing Efficiency", "Imperfections", "Electrical Properties"],
+                    pdfLink: "https://drive.google.com/file/d/1DwwuLARjjQKi3T6fWclP7cCV3XOgKURH/view?usp=drive_link"
+                },
+                {
+                    number: 2,
+                    title: "Solutions",
+                    sections: ["Concentration Terms", "Solubility", "Vapour Pressure", "Colligative Properties", "Abnormal Molar Mass"],
+                    pdfLink: "https://drive.google.com/file/d/1ffyWjJefGFqcfOT35MnnBJHEEUxyRDMh/view?usp=sharing"
+                },
+                {
+                    number: 3,
+                    title: "Electrochemistry",
+                    sections: ["Electrochemical Cells", "Galvanic Cells", "Nernst Equation", "electrochemistry", "Batteries"],
+                    pdfLink: "https://drive.google.com/file/d/1RC0bj1ymHPldg3pcOTSj6wT3Jew0sr2c/view?usp=sharing"
+                },
+                {
+                    number: 4,
+                    title: "Chemical Kinetics",
+                    sections: ["Rate of Reaction", "Factors Affecting Rate", "Integrated Rate Laws", "Collision Theory", "Catalysis"],
+                    pdfLink: "https://online.flippingbook.com/view/616548596/"
+                },
+                {
+                    number: 5,
+                    title: "Surface Chemistry",
+                    sections: ["Adsorption", "Catalysis", "Colloids", "Emulsions", "Applications"],
+                    pdfLink: "https://drive.google.com/file/d/1MAFJTlow803T6tDDZ4YkEjkEOVLx5WI9/view?usp=drive_link"
+                },
+                {
+                    number: 6,
+                    title: "Isolation of Elements (Principles and Processes)",
+                    sections: ["Occurrence of Metals", "Concentration of Ores", "Extraction Methods", "Refining", "Uses"],
+                    pdfLink: "https://drive.google.com/file/d/1Uw1yZzeBINKHi3qdE1QtVdGI0GzZscjk/view?usp=drive_link"
+                },
+                {
+                    number: 7,
+                    title: "The d-and f-Block Elements",
+                    sections: ["Electronic Configuration", "Properties", "Compounds", "Uses", "Inner Transition Elements"],
+                    pdfLink: "https://drive.google.com/file/d/1qFpqkFcLrwlqXZ8DBRf5_L6F3TOxx5aw/view?usp=sharing"
+                },
+                {
+                    number: 8,
+                    title: "Coordination Compounds",
+                    sections: ["Werner's Theory", "IUPAC Nomenclature", "Isomerism", "Bonding", "Crystal Field Theory"],
+                    pdfLink: "https://drive.google.com/file/d/17VhcYyA6I08S7oqHiDIukjr-5sNh7jT8/view?usp=drive_link"
+                },
+                {
+                    number: 9,
+                    title: "Haloalkanes and Haloarenes",
+                    sections: ["Classification", "Nomenclature", "Preparation", "Properties", "Uses"],
+                    pdfLink: "https://drive.google.com/file/d/1GhCYLEv2kiH9Be9dr6YRwxoH_YVewPx_/view?usp=drive_link"
+                },
+                {
+                    number: 10,
+                    title: "Alcohols, Phenols and Ethers",
+                    sections: ["Classification", "Nomenclature", "Preparation", "Properties", "Uses"],
+                    pdfLink: "https://drive.google.com/file/d/1xCMRwnHj_uo-Js5CW1jPLqRMMIF5Uz_A/view?usp=drive_link"
+                },
+                {
+                    number: 11,
+                    title: "Aldehydes, Ketones and Carboxylic Acids",
+                    sections: ["Structure", "Preparation", "Properties", "Uses", "Important Reactions"],
+                    pdfLink: "https://drive.google.com/file/d/1pfygGnMVAJCV5-AGBRzYDpeev0atWSpw/view?usp=sharing"
+                },
+                {
+                    number: 12,
+                    title: "Amines",
+                    sections: ["Classification", "Structure", "Preparation", "Properties", "Diazonium Salts"],
+                    pdfLink: "https://drive.google.com/file/d/1CFhnFH0i1ywzk1aZmjrfkHx1xgz9CS-V/view?usp=drive_link"
+                },
+                {
+                    number: 13,
+                    title: "Biomolecules",
+                    sections: ["Carbohydrates", "Proteins", "Nucleic Acids", "Vitamins", "Hormones"],
+                    pdfLink: "https://drive.google.com/file/d/1Tt1yN_t8hNO_ihgF-oeco8jMEbU1214W/view?usp=drive_link"
+                },
+                {
+                    number: 14,
+                    title: "Polymers",
+                    sections: ["Classification", "Polymerisation", "Molecular Mass", "Biodegradable Polymers"],
+                    pdfLink: "https://drive.google.com/file/d/1gIHV0thu7l1QpAoe6wv00JDIjFvcxlEm/view?usp=drive_link"
+                },
+                {
+                    number: 15,
+                    title: "Chemistry in Everyday Life",
+                    sections: ["Drugs and Medicines", "Food Chemistry", "Cleansing Agents", "Chemicals in Agriculture"],
+                    pdfLink: "https://drive.google.com/file/d/1u1vYP_C6xPCisdIJ3d_Cs_gVaWrchjvG/view?usp=drive_link"
+                }
+            ],
+            mathematics: [
+                {
+                    number: 1,
+                    title: "Relations and Functions",
+                    sections: ["Types of Relations", "Types of Functions", "Composition of Functions", "Invertible Functions"],
+                    pdfLink: ""
+                },
+                {
+                    number: 2,
+                    title: "Inverse Trigonometric Functions",
+                    sections: ["Basic Concepts", "Properties", "Graphs", "Elementary Properties"],
+                    pdfLink: ""
+                },
+                {
+                    number: 3,
+                    title: "Matrices",
+                    sections: ["Concept", "Types of Matrices", "Operations", "Properties", "Elementary Operations"],
+                    pdfLink: ""
+                },
+                {
+                    number: 4,
+                    title: "Determinants",
+                    sections: ["Determinant of Matrix", "Properties", "Area of Triangle", "Minors and Cofactors", "Applications"],
+                    pdfLink: ""
+                },
+                {
+                    number: 5,
+                    title: "Continuity and Differentiability",
+                    sections: ["Continuity", "Differentiability", "Exponential Functions", "Logarithmic Functions", "Inverse Trigonometric Functions"],
+                    pdfLink: ""
+                },
+                {
+                    number: 6,
+                    title: "Application of Derivatives",
+                    sections: ["Rate of Change", "Tangents and Normals", "Monotonicity", "Maxima and Minima", "Simple Problems"],
+                    pdfLink: ""
+                },
+                {
+                    number: 7,
+                    title: "Integrals",
+                    sections: ["Integration as Inverse", "Methods of Integration", "Integrals of Special Functions", "Definite Integrals", "Properties"],
+                    pdfLink: ""
+                },
+                {
+                    number: 8,
+                    title: "Application of Integrals",
+                    sections: ["Area under Simple Curves", "Area between Two Curves", "Area of Simple Curves"],
+                    pdfLink: ""
+                },
+                {
+                    number: 9,
+                    title: "Differential Equations",
+                    sections: ["Basic Concepts", "General Solution", "Formation of Differential Equations", "Methods of Solution"],
+                    pdfLink: ""
+                },
+                {
+                    number: 10,
+                    title: "Vector Algebra",
+                    sections: ["Vectors and Scalars", "Addition of Vectors", "Components", "Scalar Product", "Vector Product"],
+                    pdfLink: ""
+                },
+                {
+                    number: 11,
+                    title: "Three Dimensional Geometry",
+                    sections: ["Direction Cosines", "Direction Ratios", "Equation of Line", "Equation of Plane", "Coplanarity"],
+                    pdfLink: ""
+                },
+                {
+                    number: 12,
+                    title: "Linear Programming",
+                    sections: ["Introduction", "Related Terminology", "Mathematical Formulation", "Graphical Method"],
+                    pdfLink: ""
+                },
+                {
+                    number: 13,
+                    title: "Probability",
+                    sections: ["Conditional Probability", "Multiplication Theorem", "Independent Events", "Bayes' Theorem", "Random Variables"],
+                    pdfLink: ""
+                }
+            ],
+            english: [
+                {
+                    number: 1,
+                    title: "The Last Lesson (Flamingo Prose)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Language and Style", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 2,
+                    title: "Lost Spring (Flamingo Prose)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Social Issues", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 3,
+                    title: "Deep Water (Flamingo Prose)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Psychological Aspects", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 4,
+                    title: "The Rattrap (Flamingo Prose)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Moral Lessons", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 5,
+                    title: "Indigo (Flamingo Prose)",
+                    sections: ["Summary", "Historical Context", "Themes", "Gandhi's Philosophy", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 6,
+                    title: "Poets and Pancakes (Flamingo Prose)",
+                    sections: ["Summary", "Film Industry Insights", "Themes", "Humor and Satire", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 7,
+                    title: "The Interview (Flamingo Prose)",
+                    sections: ["Summary", "Celebrity Culture", "Themes", "Media and Fame", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 8,
+                    title: "Going Places (Flamingo Prose)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Dreams vs Reality", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 9,
+                    title: "My Mother at Sixty-six (Flamingo Poetry)",
+                    sections: ["Summary", "Poetic Devices", "Themes", "Imagery", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 10,
+                    title: "An Elementary School Classroom in a Slum (Flamingo Poetry)",
+                    sections: ["Summary", "Poetic Devices", "Themes", "Social Commentary", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 11,
+                    title: "Keeping Quiet (Flamingo Poetry)",
+                    sections: ["Summary", "Poetic Devices", "Themes", "Philosophy", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 12,
+                    title: "A Thing of Beauty (Flamingo Poetry)",
+                    sections: ["Summary", "Poetic Devices", "Themes", "Romantic Elements", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 13,
+                    title: "A Roadside Stand (Flamingo Poetry)",
+                    sections: ["Summary", "Poetic Devices", "Themes", "Rural-Urban Divide", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 14,
+                    title: "Aunt Jennifer's Tigers (Flamingo Poetry)",
+                    sections: ["Summary", "Poetic Devices", "Themes", "Feminism", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 15,
+                    title: "The Third Level (Vistas)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Fantasy Elements", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 16,
+                    title: "The Tiger King (Vistas)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Satire", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 17,
+                    title: "Journey to the End of the Earth (Vistas)",
+                    sections: ["Summary", "Environmental Themes", "Antarctica", "Climate Change", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 18,
+                    title: "The Enemy (Vistas)",
+                    sections: ["Summary", "Character Analysis", "Themes", "War and Humanity", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 19,
+                    title: "On the Face of It (Vistas)",
+                    sections: ["Summary", "Character Analysis", "Themes", "Disability and Society", "Questions and Answers"],
+                    pdfLink: ""
+                },
+                {
+                    number: 20,
+                    title: "Memories of Childhood (Vistas)",
+                    sections: ["Summary", "Cultural Identity", "Themes", "Autobiography", "Questions and Answers"],
+                    pdfLink: ""
+                }
+            ]
+        };
+
+        // Function to show homepage
+        function showHomepage() {
+            document.getElementById('homepage').style.display = 'block';
+            document.getElementById('physics-page').style.display = 'none';
+            document.getElementById('chemistry-page').style.display = 'none';
+            document.getElementById('mathematics-page').style.display = 'none';
+            document.getElementById('english-page').style.display = 'none';
+        }
+
+        // Function to show subject page
+        function showSubject(subject) {
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('physics-page').style.display = 'none';
+            document.getElementById('chemistry-page').style.display = 'none';
+            document.getElementById('mathematics-page').style.display = 'none';
+            document.getElementById('english-page').style.display = 'none';
+            
+            document.getElementById(subject + '-page').style.display = 'block';
+            loadChapters(subject);
+        }
+
+        // Function to load chapters for a subject
+        function loadChapters(subject) {
+            const container = document.getElementById(subject + '-chapters');
+            const chapters = chaptersData[subject];
+            
+            container.innerHTML = '';
+            
+            chapters.forEach(chapter => {
+                const chapterDiv = document.createElement('div');
+                chapterDiv.className = 'chapter-item';
+                chapterDiv.onclick = () => openChapter(chapter.pdfLink, chapter.title);
+                
+                const sectionsHTML = chapter.sections.map(section => 
+                    `<span class="section-tag">${section}</span>`
+                ).join('');
+                
+                const pdfStatus = chapter.pdfLink ? 
+                    '<span class="pdf-status pdf-available"><i class="fas fa-file-pdf"></i> PDF Available</span>' :
+                    '<span class="pdf-status pdf-coming-soon"><i class="fas fa-clock"></i> Coming Soon</span>';
+                
+                chapterDiv.innerHTML = `
+                    <div class="chapter-title">Chapter ${chapter.number}: ${chapter.title}</div>
+                    <div class="chapter-sections">${sectionsHTML}</div>
+                    ${pdfStatus}
+                `;
+                
+                container.appendChild(chapterDiv);
+            });
+        }
+
+        // Function to open chapter PDF
+        function openChapter(pdfLink, title) {
+            if (pdfLink) {
+                window.open(pdfLink, '_blank');
+            } else {
+                alert(`Coming Soon: ${title} notes will be available soon!`);
+            }
+        }
+
+        // Initialize homepage on load
+        document.addEventListener('DOMContentLoaded', function() {
+            showHomepage();
+        });
+    </script>
+</body>
+</html>
